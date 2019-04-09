@@ -19,6 +19,7 @@ function startUserMedia(stream) {
 
 
 let startRecording = function () {
+    audio_context.resume()
     recorder && recorder.record();
     console.log("record start")
 };
@@ -78,7 +79,7 @@ window.onload = function init() {
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
         window.URL = window.URL || window.webkitURL;
 
-        audio_context = new AudioContext;
+        audio_context = new AudioContext();
     } catch (e) {
         alert('No web audio support in this browser!');
     }
